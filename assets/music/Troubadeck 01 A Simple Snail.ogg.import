@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cr552kht3f8qc"
+path="res://.godot/imported/Troubadeck 01 A Simple Snail.ogg-783545b232e437e5f1c5c4f9b2c603cd.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/Troubadeck 01 A Simple Snail.ogg"
+dest_files=["res://.godot/imported/Troubadeck 01 A Simple Snail.ogg-783545b232e437e5f1c5c4f9b2c603cd.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

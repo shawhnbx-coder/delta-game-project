@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d2ktgc0sl5oih"
+path="res://.godot/imported/Pen Click Sfx.wav-c9124da8afc230082d622bdb48240dd1.sample"
+
+[deps]
+
+source_file="res://assets/sfx/office/Pen Click Sfx.wav"
+dest_files=["res://.godot/imported/Pen Click Sfx.wav-c9124da8afc230082d622bdb48240dd1.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
