@@ -1,3 +1,25 @@
 [gd_scene format=3 uid="uid://cugxlff0r6h5r"]
 
 [node name="Room" type="Node2D" unique_id=2107971193]
+
+[node name="TileMapLayer_Floor" type="TileMapLayer" parent="." unique_id=1132026625]
+
+[node name="TileMapLayer_Walls" type="TileMapLayer" parent="." unique_id=351330373]
+
+[node name="TileMapLayer_Furniture" type="TileMapLayer" parent="." unique_id=1616401076]
+
+[node name="TileMapLayer_Deco" type="TileMapLayer" parent="." unique_id=1250376032]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=106643544]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1590690300]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1263152125]
+
+[node name="markers" type="Node2D" parent="." unique_id=937736009]
+
+[node name="employees" type="Node2D" parent="." unique_id=1795902098]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1738332738]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=715755095]
