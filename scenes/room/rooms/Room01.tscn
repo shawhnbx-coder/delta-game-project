@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://3ruan68gogfh"]
+
+[ext_resource type="PackedScene" uid="uid://cugxlff0r6h5r" path="res://scenes/room/Room.tscn" id="1_mb6uu"]
+[ext_resource type="TileSet" uid="uid://bvxww2v884lpb" path="res://scenes/room/room_tile_set.tres" id="2_2yx6v"]
+
+[node name="Room01" unique_id=2107971193 instance=ExtResource("1_mb6uu")]
+
+[node name="TileMapLayer_Floor" parent="." index="0" unique_id=1132026625]
+tile_set = ExtResource("2_2yx6v")
