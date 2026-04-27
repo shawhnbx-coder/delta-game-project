@@ -5,8 +5,8 @@ class_name Configs
 const EMP_SCRIPT: GDScript = preload("res://scenes/emp/emp.gd")
 
 # -------------------------------------------------------------------
-const EMP01_SPRITES = preload("res://scenes/spy/sprites/emp01.tres")
-const EMP02_SPRITES = preload("res://scenes/spy/sprites/emp02.tres")
+const EMP01_SPRITES = preload("res://scenes/emp/sprites/emp01.tres")
+const EMP02_SPRITES = preload("res://scenes/emp/sprites/emp02.tres")
 
 # -------------------------------------------------------------------
 const FOOTSTEPS01_SFX = preload("res://assets/sfx/footsteps/271911__sturmankin__carpet_15a_darkshoes_walk.wav")
