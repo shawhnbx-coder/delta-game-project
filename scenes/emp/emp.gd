@@ -177,3 +177,128 @@ func play_footsteps() -> void:
 	else:
 		if footsteps_player.playing:
 			footsteps_player.stop()
+			
+
+# -------------------------------------------------------------------
+# -------------------------------------------------------------------
+# make sure Monitoring=On in the Area2D (this is the default)
+# make sure Pickable=On in the Area2D (this is the default)
+@onready var area: Area2D 						= $Area2D
+@onready var canvas_layer: CanvasLayer 			= $CanvasLayer
+@onready var panel_container: PanelContainer	= $CanvasLayer/PanelContainer
+@onready var margin_container: MarginContainer	= $CanvasLayer/PanelContainer/MarginContainer
+@onready var talk_dialog: VBoxContainer 		= $CanvasLayer/PanelContainer/MarginContainer/VBoxContainer
+
+@onready var dialog_name_label: Label			= talk_dialog.get_node("NameLabel")
+@onready var dialog_story_label: Label			= talk_dialog.get_node("StoryLabel")
+@onready var dialog_desc_label: Label			= talk_dialog.get_node("DescLabel")
+@onready var dialog_result_label: RichTextLabel	= talk_dialog.get_node("ResultLabel")
+@onready var dialog_accuse_button: Button 		= talk_dialog.get_node("AccuseButton")
+@onready var dialog_close_button: Button 		= talk_dialog.get_node("CloseButton")
+
+signal clicked(emp_config: EmpConfig)
+signal emp_completed(success: bool)
+
+## delay in seconds before next room loads
+const NEXT_ROOM_DELAY_SECS: float = 3.0
+
+# -------------------------------------------------------------------
+## enable the mouse click detection
+func prepare_dialog():
+	# Double-safety: ensure the UI layer keeps running while paused
+	canvas_layer.process_mode = Node.PROCESS_MODE_ALWAYS
+
+	# Hide dialog at start
+	canvas_layer.hide()
+	
+	# set the look of the dialog box
+	set_dialog_style()
+
+	# Detect mouse clicks and put up the dialog box
+	clicked.connect(_on_clicked)
+
+	# Connect the area's input_event signal
+	area.input_event.connect(_on_area_input_event)
+
+	# Wire the accuse and close button
+	dialog_accuse_button.pressed.connect(_on_dialog_accuse)
+	dialog_close_button.pressed.connect(_on_dialog_close)
+
+	# enable input event processing for this scene
+	input_pickable = true
+
+# -------------------------------------------------------------------
+func set_dialog_style():
+	const margin: int = 25
+	margin_container.add_theme_constant_override("margin_top", margin)
+	margin_container.add_theme_constant_override("margin_left", margin)
+	margin_container.add_theme_constant_override("margin_bottom", margin)
+	margin_container.add_theme_constant_override("margin_right", margin)
+
+	var dialog_style = StyleBoxFlat.new()
+	dialog_style.bg_color = Color(0.1, 0.1, 0.1, 0.9)   # near-black, 90% opaque
+	dialog_style.border_color = Color(1, 1, 1, 1)         # white border
+	panel_container.add_theme_stylebox_override("panel", dialog_style)
+
+# -------------------------------------------------------------------
+## Handle input events for this scene
+# We use the Area CollisionShape for the clickable area
+func _on_area_input_event(viewport: Node, event: InputEvent, _shape_idx: int):
+	if event is InputEventMouseButton \
+			and event.button_index == MOUSE_BUTTON_LEFT \
+			and event.pressed:
+		clicked.emit(emp_config)
+		viewport.set_input_as_handled() # do not propagate event to children
+
+# -------------------------------------------------------------------
+## The mouse button was clicked over this employee
+@warning_ignore("shadowed_variable")
+func _on_clicked(emp_config: EmpConfig):
+	# Freeze the entire game world
+	get_tree().paused = true
+
+	# Show text
+	dialog_name_label.text 		= emp_config.name
+	dialog_story_label.text 	= emp_config.story
+	dialog_desc_label.text 		= emp_config.desc
+	dialog_result_label.visible = false
+	dialog_result_label.text 	= ""
+	canvas_layer.show()
+
+# -------------------------------------------------------------------
+## Fancy bbcode display of room success message
+# https://docs.godotengine.org/en/stable/tutorials/ui/bbcode_in_richtextlabel.html
+func success_message():
+	var message: String = "[center][color=green][shake level=5 rate=10][font_size=24][b]"
+	message += "Success!"
+	message += "[/b][/font_size][/shake][/color][/center]"
+	return message
+
+# -------------------------------------------------------------------
+## Fancy bbcode display of room failure message
+# https://docs.godotengine.org/en/stable/tutorials/ui/bbcode_in_richtextlabel.html
+func failure_message():
+	var message: String = "[center][color=red][shake level=5 rate=10][font_size=24][b]"
+	message += "Failure!"
+	message += "[/b][/font_size][/shake][/color][/center]"
+	return message
+
+# -------------------------------------------------------------------
+## the accuse button on the dialog was pressed - end of level
+func _on_dialog_accuse():
+	var success: bool = true   # **************************
+	dialog_result_label.bbcode_enabled = true # defaults to false
+	dialog_result_label.fit_content = true # auto resize to fit contents - default is false
+	dialog_result_label.text = (success_message() if success else failure_message())
+	dialog_result_label.visible = true
+	await get_tree().create_timer(NEXT_ROOM_DELAY_SECS).timeout
+	canvas_layer.hide()
+	get_tree().paused = false
+	emp_completed.emit(success)
+
+# -------------------------------------------------------------------
+## The close button on the dialog box was clicked
+func _on_dialog_close():
+	# Hide the dialog box and resume the game
+	canvas_layer.hide()
+	get_tree().paused = false
