@@ -47,10 +47,15 @@ func spawn_emps() -> void:
 	for emp_config: EmpConfig in room_config.spies:
 		var emp_scene: CharacterBody2D = emp_config.scene_script.create(emp_config,
 			entry_markers, idle_markers, work_markers, false)
+		emp_scene.emp_completed.connect(_on_emp_completed)
 		emp_scene.global_position = entry_markers.pick_random().global_position # do before adding to tree
 		$npcs.add_child(emp_scene) # add to tree so it becomes visible and active; calls _ready()
 
 # -------------------------------------------------------------------
+func _on_emp_completed(success):
+	room_completed.emit(success)
+
+
 func play_music() -> void:
 	audio_stream_player.stream = room_config.music
 	audio_stream_player.stream.loop = true
