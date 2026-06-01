@@ -1,3 +1,48 @@
 [gd_scene format=3 uid="uid://dxkxausftmb0u"]
 
-[node name="Npc" type="CharacterBody2D" unique_id=187598152]
+[node name="Emp" type="CharacterBody2D" unique_id=187598152]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=452444248]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=941403923]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1481348904]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1571753089]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=423297969]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=311020117]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=350825383]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=141805628]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer" unique_id=32407084]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer" unique_id=2025217636]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2104440569]
+layout_mode = 2
+
+[node name="StoryLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1804422461]
+layout_mode = 2
+
+[node name="DescLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=924804175]
+layout_mode = 2
+
+[node name="ResultLabel" type="RichTextLabel" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=629229287]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="AccuseButton" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1173041931]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="CloseButton" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1487948266]
+layout_mode = 2
+size_flags_vertical = 4

@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="DeltaGameProject"
+run/main_scene="uid://l3qfx0m8bj7u"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

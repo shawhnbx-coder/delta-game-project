@@ -6,8 +6,6 @@ const EMP_SCENE: PackedScene = preload("res://scenes/emp/Emp.tscn")
 
 var emp_config: EmpConfig = null
 
-var is_emp_pct:	  float = 20.0
-
 # -------------------------------------------------------------------
 ## A handle to the NPCs navigation agent used for pathfinding.
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
@@ -45,6 +43,8 @@ func create_movement_targets() -> void:
 # -------------------------------------------------------------------
 var   is_waiting:     bool  = false
 var   is_spy:         bool  = false
+var   is_known_spy:   bool  = false 
+# is_spy means the employee is the spy, but is_known_spy comes true when the spy has done something suspicous
 
 # -------------------------------------------------------------------
 # -------------------------------------------------------------------

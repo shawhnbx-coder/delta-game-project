@@ -3,6 +3,7 @@ class_name RoomScript
 
 # -------------------------------------------------------------------
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+signal room_completed(success: bool)
 
 # -------------------------------------------------------------------
 var room_config: RoomConfig = null
