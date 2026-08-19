@@ -82110,3 +82110,39 @@ tile_set = SubResource("TileSet_cwll4")
 [node name="TileMapLayer_Deco" parent="." index="3" unique_id=1250376032]
 tile_map_data = PackedByteArray("AAALAAkAAAAOAAoAAAALAAoAAAAOAAsAAAAQAAkAAAAOAAoAAAAQAAoAAAAOAAsAAAABAAkAAAANAAoAAAAWAAkAAAANAAoAABAWAAUAAAANAAoAABABAAMAAAANAAoAAAAKAAoAAAAKAAkAACAVAAoAAAAKAAkAACAVAAYAAAAKAAkAADABAAQAAAABAA8AAAAPAAkAAAALAA8AAAAPAAoAAAALABAAAAAMAAkAAAALAA8AABAMAAoAAAALABAAABACAAkAAAALAA8AABACAAoAAAALABAAABASAAoAAAAIABgAACASAAkAAAAIABkAACA=")
 tile_set = SubResource("TileSet_k052x")
+
+[node name="entry1" type="Marker2D" parent="markers" parent_id_path=PackedInt32Array(937736009) index="0" unique_id=1111862093]
+position = Vector2(384, 528)
+
+[node name="entry2" type="Marker2D" parent="markers" parent_id_path=PackedInt32Array(937736009) index="1" unique_id=148934738]
+position = Vector2(1056, 144)
+
+[node name="entry3" type="Marker2D" parent="markers" parent_id_path=PackedInt32Array(937736009) index="2" unique_id=890347179]
+position = Vector2(288, 528)
+
+[node name="entry4" type="Marker2D" parent="markers" parent_id_path=PackedInt32Array(937736009) index="3" unique_id=964163430]
+position = Vector2(480, 96)
+
+[node name="idle1" type="Marker2D" parent="markers" parent_id_path=PackedInt32Array(937736009) index="4" unique_id=11139947]
+position = Vector2(912, 432)
+
+[node name="idle2" type="Marker2D" parent="markers" parent_id_path=PackedInt32Array(937736009) index="5" unique_id=996104644]
+position = Vector2(384, 144)
+
+[node name="idle3" type="Marker2D" parent="markers" parent_id_path=PackedInt32Array(937736009) index="6" unique_id=1888245276]
+position = Vector2(960, 144)
+
+[node name="idle4" type="Marker2D" parent="markers" parent_id_path=PackedInt32Array(937736009) index="7" unique_id=196256831]
+position = Vector2(768, 144)
+
+[node name="work1" type="Marker2D" parent="markers" parent_id_path=PackedInt32Array(937736009) index="8" unique_id=1591647075]
+position = Vector2(816, 432)
+
+[node name="work2" type="Marker2D" parent="markers" parent_id_path=PackedInt32Array(937736009) index="9" unique_id=440837894]
+position = Vector2(528, 432)
+
+[node name="work3" type="Marker2D" parent="markers" parent_id_path=PackedInt32Array(937736009) index="10" unique_id=1063781719]
+position = Vector2(144, 144)
+
+[node name="work4" type="Marker2D" parent="markers" parent_id_path=PackedInt32Array(937736009) index="11" unique_id=421527721]
+position = Vector2(96, 384)
