@@ -14,15 +14,16 @@ var  work_markers: Array[Marker2D]
 # -------------------------------------------------------------------
 # -------------------------------------------------------------------
 @warning_ignore("shadowed_variable")
-static func create(room_config: RoomConfig) -> Node2D:
+static func create(room_config: RoomConfig, score: int) -> Node2D:
 	var room_instance = room_config.scene.instantiate() # create, calls _init()
-	room_instance.configure(room_config)
+	room_instance.configure(room_config, score)
 	return room_instance
 
 # -------------------------------------------------------------------
-@warning_ignore("shadowed_variable")
-func configure(room_config: RoomConfig) -> void:
+@warning_ignore("shadowed_variable", "unused_parameter")
+func configure(room_config: RoomConfig, score: int) -> void:
 	self.room_config = room_config
+	# display_hud(score)
 
 # -------------------------------------------------------------------
 # Called when the node enters the scene tree for the first time.

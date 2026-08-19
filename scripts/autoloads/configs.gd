@@ -52,7 +52,7 @@ static var rooms_config: Array[RoomConfig] = [
 
 # -------------------------------------------------------------------
 ## Retrieve the configuration data for a level (1..).
-static func get_room_config(room_index: int) -> RoomConfig:
+func get_room_config(room_index: int) -> RoomConfig:
 	room_index -= 1 # turn into zero-based
 	assert(room_index >= 0 and room_index < rooms_config.size())
 	return rooms_config[room_index]

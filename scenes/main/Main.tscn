@@ -1,6 +1,27 @@
 [gd_scene format=3 uid="uid://l3qfx0m8bj7u"]
 
-[ext_resource type="Script" uid="uid://l650e5sf17sg" path="res://scenes/main/main.gd" id="1_u1xfj"]
+[ext_resource type="Script" uid="uid://cfpndpharfs0t" path="res://scenes/main/main.gd" id="1_u1xfj"]
 
 [node name="Main" type="Node2D" unique_id=900482987]
 script = ExtResource("1_u1xfj")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1726319877]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1967408790]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer" unique_id=1856819051]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer" unique_id=514213280]
+layout_mode = 2
+
+[node name="RichTextLabelTitle" type="RichTextLabel" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1576458232]
+layout_mode = 2
+
+[node name="LabelInstructions" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=432276590]
+layout_mode = 2
+
+[node name="ButtonClose" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1513978435]
+layout_mode = 2
