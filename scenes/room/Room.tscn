@@ -16,10 +16,10 @@
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1263152125]
 
-[node name="markers" type="Node2D" parent="." unique_id=937736009]
-
 [node name="employees" type="Node2D" parent="." unique_id=1795902098]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1738332738]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=715755095]
+
+[node name="markers" type="Node2D" parent="." unique_id=937736009]
