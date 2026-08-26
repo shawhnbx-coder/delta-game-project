@@ -6,6 +6,8 @@
 script = ExtResource("1_u1xfj")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1726319877]
+offset = Vector2(300, 250)
+transform = Transform2D(1, 0, 0, 1, 300, 250)
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1967408790]
 offset_right = 40.0

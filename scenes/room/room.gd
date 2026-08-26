@@ -45,12 +45,12 @@ func populate_marker_arrays() -> void:
 # -------------------------------------------------------------------
 ## Spawns an NPC at a specific coordinate
 func spawn_emps() -> void:
-	for emp_config: EmpConfig in room_config.spies:
+	for emp_config: EmpConfig in room_config.emps:
 		var emp_scene: CharacterBody2D = emp_config.scene_script.create(emp_config,
 			entry_markers, idle_markers, work_markers, false)
 		emp_scene.emp_completed.connect(_on_emp_completed)
 		emp_scene.global_position = entry_markers.pick_random().global_position # do before adding to tree
-		$npcs.add_child(emp_scene) # add to tree so it becomes visible and active; calls _ready()
+		$employees.add_child(emp_scene) # add to tree so it becomes visible and active; calls _ready()
 
 # -------------------------------------------------------------------
 func _on_emp_completed(success):

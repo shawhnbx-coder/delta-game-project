@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://dxkxausftmb0u"]
 
+[ext_resource type="Script" uid="uid://b5mgkbxgdy3ke" path="res://scenes/emp/emp.gd" id="1_icqpp"]
+
 [node name="Emp" type="CharacterBody2D" unique_id=187598152]
+script = ExtResource("1_icqpp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=452444248]
 
@@ -12,7 +15,7 @@
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=423297969]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=311020117]
+[node name="FootstepsPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=311020117]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=350825383]
 
