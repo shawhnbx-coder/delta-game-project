@@ -19194,6 +19194,11 @@ sources/0 = SubResource("TileSetAtlasSource_e7ccs")
 sources/1 = SubResource("TileSetAtlasSource_rks3y")
 sources/2 = SubResource("TileSetAtlasSource_ykq1r")
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_7w6up"]
+vertices = PackedVector2Array(58, 10, 1094, 10, 1094, 240, 1008, 240, 96, 96, 1008, 336, 1094, 336, 1094, 432, 1008, 432, 1008, 518, 912, 518, 912, 480, 720, 480, 720, 518, 624, 518, 624, 480, 480, 480, 480, 518, 144, 518, 144, 432, 336, 336, 58, 432, 58, 336, 336, 288, 58, 288, 58, 240, 96, 240, 58, 96, 96, 144)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(16, 17, 18, 19, 20), PackedInt32Array(19, 21, 22, 20), PackedInt32Array(23, 24, 25, 26), PackedInt32Array(4, 27, 0), PackedInt32Array(28, 4, 3), PackedInt32Array(23, 26, 28, 3, 5), PackedInt32Array(16, 20, 23, 5, 15), PackedInt32Array(12, 15, 5), PackedInt32Array(11, 12, 5, 8)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(48, 0, 1104, 0, 1104, 528, 48, 528)])
+
 [node name="Room01" unique_id=2107971193 instance=ExtResource("1_mb6uu")]
 script = ExtResource("2_7w6up")
 
@@ -19213,17 +19218,58 @@ tile_set = SubResource("TileSet_cwll4")
 tile_map_data = PackedByteArray("AAALAAkAAAAOAAoAAAALAAoAAAAOAAsAAAAQAAkAAAAOAAoAAAAQAAoAAAAOAAsAAAABAAkAAAANAAoAAAAWAAkAAAANAAoAABAWAAUAAAANAAoAABABAAMAAAANAAoAAAAKAAoAAAAKAAkAACAVAAoAAAAKAAkAACAVAAYAAAAKAAkAADABAAQAAAABAA8AAAAPAAkAAAALAA8AAAAPAAoAAAALABAAAAAMAAkAAAALAA8AABAMAAoAAAALABAAABACAAkAAAALAA8AABACAAoAAAALABAAABASAAoAAAAIABgAACASAAkAAAAIABkAACA=")
 tile_set = SubResource("TileSet_k052x")
 
+[node name="NavigationRegion2D" parent="." index="4" unique_id=106643544]
+navigation_polygon = SubResource("NavigationPolygon_7w6up")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="NavigationRegion2D" index="0" unique_id=1037173600]
+vertices = PackedVector2Array(96, 144, 96, 240, 48, 240, 48, 96, 96, 96)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+
+[node name="NavigationObstacle2D2" type="NavigationObstacle2D" parent="NavigationRegion2D" index="1" unique_id=1056359288]
+vertices = PackedVector2Array(48, 432, 144, 432, 144, 528, 48, 528)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+
+[node name="NavigationObstacle2D3" type="NavigationObstacle2D" parent="NavigationRegion2D" index="2" unique_id=645424979]
+vertices = PackedVector2Array(624, 480, 624, 528, 480, 528, 480, 480)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+
+[node name="NavigationObstacle2D4" type="NavigationObstacle2D" parent="NavigationRegion2D" index="3" unique_id=1967572219]
+vertices = PackedVector2Array(720, 528, 720, 480, 912, 480, 912, 528)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+
+[node name="NavigationObstacle2D5" type="NavigationObstacle2D" parent="NavigationRegion2D" index="4" unique_id=406199935]
+vertices = PackedVector2Array(1104, 432, 1008, 432, 1008, 528, 1104, 528)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+
+[node name="NavigationObstacle2D6" type="NavigationObstacle2D" parent="NavigationRegion2D" index="5" unique_id=531954657]
+vertices = PackedVector2Array(1104, 240, 1008, 240, 1008, 336, 1104, 336)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+
+[node name="NavigationObstacle2D7" type="NavigationObstacle2D" parent="NavigationRegion2D" index="6" unique_id=865371162]
+vertices = PackedVector2Array(48, 288, 336, 288, 336, 336, 48, 336)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+
+[node name="Camera2D" parent="." index="8" unique_id=715755095]
+offset = Vector2(576, 288)
+
 [node name="entry1" type="Marker2D" parent="markers" parent_id_path=PackedInt32Array(937736009) index="0" unique_id=1111862093]
-position = Vector2(384, 528)
+position = Vector2(384, 480)
 
 [node name="entry2" type="Marker2D" parent="markers" parent_id_path=PackedInt32Array(937736009) index="1" unique_id=148934738]
 position = Vector2(1056, 144)
 
 [node name="entry3" type="Marker2D" parent="markers" parent_id_path=PackedInt32Array(937736009) index="2" unique_id=890347179]
-position = Vector2(288, 528)
+position = Vector2(288, 480)
 
 [node name="entry4" type="Marker2D" parent="markers" parent_id_path=PackedInt32Array(937736009) index="3" unique_id=964163430]
-position = Vector2(480, 96)
+position = Vector2(480, 144)
 
 [node name="idle1" type="Marker2D" parent="markers" parent_id_path=PackedInt32Array(937736009) index="4" unique_id=11139947]
 position = Vector2(912, 432)

@@ -47,6 +47,10 @@ const TROUB01_MUSIC = preload("res://assets/music/Troubadeck 01 A Simple Snail.o
 # We use a static dictionary so you don't need to instantiate this class
 static var rooms_config: Array[RoomConfig] = [
 	RoomConfig.new("A Simple Office", ROOM01_SCENE, ROOM01_SCRIPT, TROUB01_MUSIC,
+	 				[emp01_config]), 
+	RoomConfig.new("A Simple Office", ROOM01_SCENE, ROOM01_SCRIPT, TROUB01_MUSIC,
+	 				[emp02_config]),
+	RoomConfig.new("A Simple Office", ROOM01_SCENE, ROOM01_SCRIPT, TROUB01_MUSIC,
 	 				[emp01_config, emp02_config])
 ]
 

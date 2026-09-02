@@ -2,26 +2,40 @@
 
 [ext_resource type="Script" uid="uid://b5mgkbxgdy3ke" path="res://scenes/emp/emp.gd" id="1_icqpp"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_icqpp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ubv4m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eo4ad"]
+radius = 45.0
+
 [node name="Emp" type="CharacterBody2D" unique_id=187598152]
 script = ExtResource("1_icqpp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=452444248]
+sprite_frames = SubResource("SpriteFrames_icqpp")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=941403923]
+avoidance_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1481348904]
+position = Vector2(0, 24)
+shape = SubResource("CircleShape2D_ubv4m")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1571753089]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=423297969]
+shape = SubResource("CircleShape2D_eo4ad")
 
 [node name="FootstepsPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=311020117]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=350825383]
+offset = Vector2(350, 75)
+transform = Transform2D(1, 0, 0, 1, 350, 75)
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=141805628]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 400.0
+offset_bottom = 400.0
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer" unique_id=32407084]
 layout_mode = 2
@@ -45,7 +59,10 @@ size_flags_vertical = 4
 [node name="AccuseButton" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1173041931]
 layout_mode = 2
 size_flags_vertical = 4
+text = "Accuse of being a spy!"
 
 [node name="CloseButton" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1487948266]
 layout_mode = 2
 size_flags_vertical = 4
+text = "close
+"

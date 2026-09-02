@@ -82,7 +82,8 @@ func _ready() -> void:
 	navigation_agent.velocity_computed.connect(_on_velocity_computed)
 	_select_next_target()
 	footsteps_player.stream = emp_config.footsteps
- 
+	prepare_dialog()
+	
 # -------------------------------------------------------------------
 # -------------------------------------------------------------------
 func set_movement_target(movement_target: Vector2):
