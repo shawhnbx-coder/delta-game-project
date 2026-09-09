@@ -12,6 +12,22 @@ const EMP02_SPRITES = preload("res://scenes/emp/sprites/emp02.tres")
 const FOOTSTEPS01_SFX = preload("res://assets/sfx/footsteps/271911__sturmankin__carpet_15a_darkshoes_walk.wav")
 const FOOTSTEPS02_SFX = preload("res://assets/sfx/footsteps/271929__sturmankin__carpet_14a_lightshoes_walk.wav")
 
+const OFFICE01_SFX = preload("res://assets/sfx/office/Cabinet Lock Sfx.wav")
+const OFFICE02_SFX = preload("res://assets/sfx/office/Cup On Table Sfx.wav")
+const OFFICE03_SFX = preload("res://assets/sfx/office/Double Click Mouse Sfx.wav")
+const OFFICE04_SFX = preload("res://assets/sfx/office/Light Switch Click On Sfx.wav")
+const OFFICE05_SFX = preload("res://assets/sfx/office/Office Chair Roll Sfx.wav")
+const OFFICE06_SFX = preload("res://assets/sfx/office/Page Turning Sfx.wav")
+const OFFICE07_SFX = preload("res://assets/sfx/office/Paper Crumple Crumpling Scrunch Crunch Sfx.wav")
+const OFFICE08_SFX = preload("res://assets/sfx/office/Pen Click Sfx.wav")
+const OFFICE09_SFX = preload("res://assets/sfx/office/Slow Office Clock Tick Sfx.wav")
+const OFFICE10_SFX = preload("res://assets/sfx/office/Tissue Out Of Box Sfx.wav")
+const OFFICE11_SFX = preload("res://assets/sfx/office/Typing Sfx.wav")
+
+var OFFICE_SOUNDS: Array[Resource] = \
+	[OFFICE01_SFX, OFFICE02_SFX, OFFICE03_SFX, OFFICE04_SFX, OFFICE05_SFX, \
+	 OFFICE06_SFX, OFFICE07_SFX, OFFICE08_SFX, OFFICE09_SFX, OFFICE10_SFX, OFFICE11_SFX]
+	
 # -------------------------------------------------------------------
 static var emp01_config: EmpConfig = EmpConfig.new(
 	"Mr. Bojangles",
@@ -46,11 +62,15 @@ const TROUB01_MUSIC = preload("res://assets/music/Troubadeck 01 A Simple Snail.o
 # -------------------------------------------------------------------
 # We use a static dictionary so you don't need to instantiate this class
 static var rooms_config: Array[RoomConfig] = [
-	RoomConfig.new("A Simple Office", ROOM01_SCENE, ROOM01_SCRIPT, TROUB01_MUSIC,
+	RoomConfig.new("A Simple Office", 1, ROOM01_SCENE, ROOM01_SCRIPT, TROUB01_MUSIC,
 	 				[emp01_config]), 
-	RoomConfig.new("A Simple Office", ROOM01_SCENE, ROOM01_SCRIPT, TROUB01_MUSIC,
+	RoomConfig.new("A Simple Office", 2, ROOM01_SCENE, ROOM01_SCRIPT, TROUB01_MUSIC,
 	 				[emp02_config]),
-	RoomConfig.new("A Simple Office", ROOM01_SCENE, ROOM01_SCRIPT, TROUB01_MUSIC,
+	RoomConfig.new("A Simple Office", 3, ROOM01_SCENE, ROOM01_SCRIPT, TROUB01_MUSIC,
+	 				[emp01_config, emp02_config]),
+	RoomConfig.new("A Simple Office", 4, ROOM01_SCENE, ROOM01_SCRIPT, TROUB01_MUSIC,
+	 				[emp01_config, emp02_config]),
+	RoomConfig.new("A Simple Office", 5, ROOM01_SCENE, ROOM01_SCRIPT, TROUB01_MUSIC,
 	 				[emp01_config, emp02_config])
 ]
 

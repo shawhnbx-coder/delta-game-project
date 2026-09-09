@@ -15,7 +15,7 @@ var emp_config: EmpConfig = null
 
 ## Used to play the footsteps sound for the NPC.
 @onready var footsteps_player: AudioStreamPlayer2D = $FootstepsPlayer2D
-
+@onready var sfx_player: AudioStreamPlayer2D = $SfxPlayer2D
 const speed_scale_factor: float =  60.0
 
 # -------------------------------------------------------------------
@@ -45,6 +45,8 @@ var   is_waiting:     bool  = false
 var   is_spy:         bool  = false
 var   is_known_spy:   bool  = false 
 # is_spy means the employee is the spy, but is_known_spy comes true when the spy has done something suspicous
+var destination_marker: Marker2D = null
+var visited_work: Marker2D = null
 
 # -------------------------------------------------------------------
 # -------------------------------------------------------------------
@@ -90,14 +92,42 @@ func set_movement_target(movement_target: Vector2):
 	navigation_agent.set_target_position(movement_target)
 
 # -------------------------------------------------------------------
+# Is this marker one of the work markers?
+func is_work_marker(marker: Marker2D):
+	return marker in work_markers
+
+# -------------------------------------------------------------------
+# Select the next destination from the marker arrays
+# the destination will be weighed by the configuration ratios
+# only spies are allowed to visit more than one work area
+func pick_marker() -> Marker2D:
+	var markers: Array[Array] = [entry_markers, idle_markers, work_markers]
+	var weights: Array[float] = [emp_config.entry_ratio, emp_config.idle_ratio, emp_config.work_ratio]
+	while true:
+		var target: Marker2D = Rng.pick_weighted(markers, weights)
+		if target == destination_marker:
+			continue 
+		elif target not in work_markers:
+			return target   # not a work target, safe to use
+		elif visited_work == null:
+			visited_work = target   # first time visiting any work station, so safe
+			return target
+		elif target == visited_work:
+			return target # already visited this work, so must be safe to use
+		elif is_spy:
+			is_known_spy = true # known for sure to be a spy
+			return target # visiting more than one work area, but its a spy so it is okay
+	return null # we will never reach here - this is just to make the linter happy
+
+# -------------------------------------------------------------------
 func _select_next_target():
 	if movement_targets.is_empty(): # Fallback: if we have no queue, try to rebuild it
 		print("_select_next_target: movement_targets.is_empty()")
 		create_movement_targets()
 		if movement_targets.is_empty(): return 
-
-	var next_marker = movement_targets.pick_random() # Pick a random marker from the array
-	navigation_agent.target_position = next_marker.global_position
+	
+	destination_marker = pick_marker()
+	navigation_agent.target_position = destination_marker.global_position
 	is_waiting = false
 
 # -------------------------------------------------------------------
@@ -120,11 +150,19 @@ func _physics_process(_delta: float) -> void:
 # -------------------------------------------------------------------
 func _start_waiting():
 	is_waiting = true
+	if is_work_marker(destination_marker):   play_sfx()
 	velocity = Vector2.ZERO
 	# Create a one-shot timer for 1 to 5 seconds
 	var wait_time: float = randf_range(emp_config.wait_time_min, emp_config.wait_time_max)
 	await get_tree().create_timer(wait_time).timeout
 	_select_next_target()
+
+# -------------------------------------------------------------------
+## Employee just arrived at a work station; play a random office sound effect
+func play_sfx():
+	sfx_player.stream = GlobalConfigs.OFFICE_SOUNDS.pick_random()
+	sfx_player.stream.loop_mode = AudioStreamWAV.LOOP_DISABLED
+	sfx_player.play()
 
 # -------------------------------------------------------------------
 ## Gets called when the pathfinding (NavigationAgent) has computed the direction of travel.
@@ -287,7 +325,7 @@ func failure_message():
 # -------------------------------------------------------------------
 ## the accuse button on the dialog was pressed - end of level
 func _on_dialog_accuse():
-	var success: bool = true   # **************************
+	var success: bool = is_known_spy  
 	dialog_result_label.bbcode_enabled = true # defaults to false
 	dialog_result_label.fit_content = true # auto resize to fit contents - default is false
 	dialog_result_label.text = (success_message() if success else failure_message())
