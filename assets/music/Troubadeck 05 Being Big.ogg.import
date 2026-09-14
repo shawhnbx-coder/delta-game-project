@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ddqe81fqqois2"
+path="res://.godot/imported/Troubadeck 05 Being Big.ogg-f8295c19e147d372a4b9f34be9cd0bb6.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/Troubadeck 05 Being Big.ogg"
+dest_files=["res://.godot/imported/Troubadeck 05 Being Big.ogg-f8295c19e147d372a4b9f34be9cd0bb6.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

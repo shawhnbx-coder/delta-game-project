@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dirwlf2naf28k"
+path="res://.godot/imported/Troubadeck 06 Squeaky Wagon.ogg-7f4dac1ac66618a55e35a9a76a5f660a.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/Troubadeck 06 Squeaky Wagon.ogg"
+dest_files=["res://.godot/imported/Troubadeck 06 Squeaky Wagon.ogg-7f4dac1ac66618a55e35a9a76a5f660a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cevijr8n0ih4u"
+path="res://.godot/imported/Troubadeck 04 Guinea Pig Jig.ogg-9e405b50f60378a402579cea6a41cc72.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/Troubadeck 04 Guinea Pig Jig.ogg"
+dest_files=["res://.godot/imported/Troubadeck 04 Guinea Pig Jig.ogg-9e405b50f60378a402579cea6a41cc72.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
